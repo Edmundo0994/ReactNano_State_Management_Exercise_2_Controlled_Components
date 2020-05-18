@@ -8,15 +8,20 @@ class App extends React.Component {
     items: [],
   };
 
-  handleChange = event => {
+  handleChange = event => { 
     this.setState({ value: event.target.value });
   };
+
+  emptyInput() {
+    this.setState({ value: '' })
+  }
 
   addItem = event => {
     event.preventDefault();
     this.setState(oldState => ({
       items: [...oldState.items, this.state.value],
     }));
+    this.emptyInput();
   };
 
   deleteLastItem = event => {
